@@ -13,6 +13,7 @@ export const enum types
 {
     ADD_ATTACHMENT = 'chat/ADD_ATTACHMENT',
     INCOMING_MESSAGE = 'chat/INCOMING_MESSAGE',
+    OUTGOING_MESSAGE = 'chat/OUTGOING_MESSAGE',
     REMOVE_ATTACHMENT = 'chat/REMOVE_ATTACHMENT'
 }
 
@@ -40,6 +41,16 @@ export namespace Actions
     {
         message: IChatMessage;
         type: types.INCOMING_MESSAGE;
+    }
+
+
+    /**
+     * I am an interface to an action of outgoing message.
+     */
+    export interface IOutgoingMessage extends Action
+    {
+        message: IChatMessage;
+        type: types.OUTGOING_MESSAGE;
     }
 
 

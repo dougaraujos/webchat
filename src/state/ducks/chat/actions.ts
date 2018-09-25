@@ -37,6 +37,20 @@ const onIncomingMessage: ActionCreator<Actions.IIncomingMessage> =
 
 
 /**
+ * I am an action creator to outgoing message.
+ *
+ * :param message: outgoing message
+ *
+ * :returns: action
+ */
+const onOutgoingMessage: ActionCreator<Actions.IOutgoingMessage> =
+    (message: IChatMessage): Actions.IOutgoingMessage => ({
+        message,
+        type: types.OUTGOING_MESSAGE
+    });
+
+
+/**
  * I am an action creator to remove an attachment.
  *
  * :param url: attachment url to be removed
@@ -57,5 +71,6 @@ export default
 {
     addAttachment,
     onIncomingMessage,
+    onOutgoingMessage,
     removeAttachment
 };
