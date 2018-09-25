@@ -10,7 +10,8 @@ import {IChatAttachment} from 'src/state/ducks/chat/state.d';
  */
 export const enum types
 {
-    ADD_ATTACHMENT = 'chat/ADD_ATTACHMENT'
+    ADD_ATTACHMENT = 'chat/ADD_ATTACHMENT',
+    REMOVE_ATTACHMENT = 'chat/REMOVE_ATTACHMENT'
 }
 
 
@@ -27,5 +28,15 @@ export namespace Actions
     {
         attachment: IChatAttachment;
         type: types.ADD_ATTACHMENT;
+    }
+
+
+    /**
+     * I am an interface to an action that removes an attachment.
+     */
+    export interface IRemoveAttachment extends Action
+    {
+        url: IChatAttachment['url'];
+        type: types.REMOVE_ATTACHMENT;
     }
 }

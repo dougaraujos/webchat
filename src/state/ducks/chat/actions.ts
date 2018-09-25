@@ -22,9 +22,24 @@ const addAttachment: ActionCreator<Actions.IAddAttachment> =
 
 
 /**
+ * I am an action creator to remove an attachment.
+ *
+ * :param url: attachment url to be removed
+ *
+ * :returns: action
+ */
+const removeAttachment: ActionCreator<Actions.IRemoveAttachment> =
+    (url: IChatAttachment['url']): Actions.IRemoveAttachment => ({
+        type: types.REMOVE_ATTACHMENT,
+        url
+    });
+
+
+/**
  * EXPORTS
  */
 export default
 {
-    addAttachment
+    addAttachment,
+    removeAttachment
 };
