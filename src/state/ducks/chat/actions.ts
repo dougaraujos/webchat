@@ -5,6 +5,7 @@ import {ActionCreator} from 'redux';
 import {Actions} from 'src/state/ducks/chat/actions.d';
 import {types} from 'src/state/ducks/chat/actions.d';
 import {IChatAttachment} from 'src/state/ducks/chat/state.d';
+import {IChatMessage} from 'src/state/ducks/chat/state.d';
 
 
 /**
@@ -18,6 +19,20 @@ const addAttachment: ActionCreator<Actions.IAddAttachment> =
     (attachment: IChatAttachment): Actions.IAddAttachment => ({
         attachment,
         type: types.ADD_ATTACHMENT
+    });
+
+
+/**
+ * I am an action creator to incoming message.
+ *
+ * :param message: incoming message
+ *
+ * :returns: action
+ */
+const onIncomingMessage: ActionCreator<Actions.IIncomingMessage> =
+    (message: IChatMessage): Actions.IIncomingMessage => ({
+        message,
+        type: types.INCOMING_MESSAGE
     });
 
 
@@ -41,5 +56,6 @@ const removeAttachment: ActionCreator<Actions.IRemoveAttachment> =
 export default
 {
     addAttachment,
+    onIncomingMessage,
     removeAttachment
 };
