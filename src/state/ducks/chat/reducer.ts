@@ -41,6 +41,33 @@ const actionsMap: IChatReducer = {
                 ...state,
                 attachments
             };
+        },
+
+
+    /**
+     * I remove an attachment from state.
+     *
+     * :param state: chat state
+     * :param action: action dispatched
+     *
+     * :returns: chat state
+     * :rtype: IChatState
+     */
+    [types.REMOVE_ATTACHMENT]:
+        (state: IChatState, action: Actions.IRemoveAttachment): IChatState =>
+        {
+            // get parameters
+            const {url} = action;
+            const attachments: IChatAttachments = {...state.attachments};
+
+            // delete attachment
+            delete attachments[url];
+
+            // return state
+            return {
+                ...state,
+                attachments
+            };
         }
 };
 
