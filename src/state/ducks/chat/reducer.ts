@@ -6,6 +6,8 @@ import {types} from 'src/state/ducks/chat/actions.d';
 import initialState from 'src/state/ducks/chat/initialstate';
 import {IChatReducer} from 'src/state/ducks/chat/reducer.d';
 import {IChatAttachments} from 'src/state/ducks/chat/state.d';
+import {IChatMessage} from 'src/state/ducks/chat/state.d';
+import {IChatMessages} from 'src/state/ducks/chat/state.d';
 import {IChatState} from 'src/state/ducks/chat/state.d';
 import Store from 'src/store';
 
@@ -40,6 +42,45 @@ const actionsMap: IChatReducer = {
             return {
                 ...state,
                 attachments
+            };
+        },
+
+
+    /**
+     * I add an incoming message to the state.
+     *
+     * :param state: chat state
+     * :param action: action dispatched
+     *
+     * :returns: chat state
+     */
+    [types.INCOMING_MESSAGE]:
+        (state: IChatState, action: Actions.IIncomingMessage): IChatState =>
+        {
+            // get parameters
+            const {originalId} = action.message;
+            const {timestamp} = action.message;
+
+            // set incoming message
+            const message: IChatMessage = {
+                ...action.message,
+                outgoing: false,
+                timestamp: timestamp * 1000
+            };
+
+            // add incoming message to chat messages
+            const messages: IChatMessages = {
+                ...state.messages,
+                byId: {
+                    ...state.messages.byId,
+                    [originalId]: message
+                }
+            };
+
+            // return state
+            return {
+                ...state,
+                messages
             };
         },
 
