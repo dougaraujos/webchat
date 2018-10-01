@@ -3,6 +3,7 @@
  */
 import {Action} from 'redux';
 import {IChatAttachment} from 'src/state/ducks/chat/state.d';
+import {IChatConnection} from 'src/state/ducks/chat/state.d';
 import {IChatMessage} from 'src/state/ducks/chat/state.d';
 
 
@@ -12,6 +13,7 @@ import {IChatMessage} from 'src/state/ducks/chat/state.d';
 export const enum types
 {
     ADD_ATTACHMENT = 'chat/ADD_ATTACHMENT',
+    CONNECT = 'chat/CONNECT',
     INCOMING_MESSAGE = 'chat/INCOMING_MESSAGE',
     OUTGOING_MESSAGE = 'chat/OUTGOING_MESSAGE',
     REMOVE_ATTACHMENT = 'chat/REMOVE_ATTACHMENT'
@@ -31,6 +33,16 @@ export namespace Actions
     {
         attachment: IChatAttachment;
         type: types.ADD_ATTACHMENT;
+    }
+
+
+    /**
+     * I am an interface to an action of chat connection.
+     */
+    export interface IConnect extends Action
+    {
+        message: IChatConnection;
+        type: types.CONNECT;
     }
 
 

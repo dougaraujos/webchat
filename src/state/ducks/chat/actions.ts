@@ -5,6 +5,7 @@ import {ActionCreator} from 'redux';
 import {Actions} from 'src/state/ducks/chat/actions.d';
 import {types} from 'src/state/ducks/chat/actions.d';
 import {IChatAttachment} from 'src/state/ducks/chat/state.d';
+import {IChatConnection} from 'src/state/ducks/chat/state.d';
 import {IChatMessage} from 'src/state/ducks/chat/state.d';
 
 
@@ -19,6 +20,20 @@ const addAttachment: ActionCreator<Actions.IAddAttachment> =
     (attachment: IChatAttachment): Actions.IAddAttachment => ({
         attachment,
         type: types.ADD_ATTACHMENT
+    });
+
+
+/**
+ * I am an action creator to set connection properties.
+ *
+ * :param message: connection message
+ *
+ * :returns: action
+ */
+const onConnect: ActionCreator<Actions.IConnect> =
+    (message: IChatConnection): Actions.IConnect => ({
+        message,
+        type: types.CONNECT
     });
 
 
@@ -70,6 +85,7 @@ const removeAttachment: ActionCreator<Actions.IRemoveAttachment> =
 export default
 {
     addAttachment,
+    onConnect,
     onIncomingMessage,
     onOutgoingMessage,
     removeAttachment
