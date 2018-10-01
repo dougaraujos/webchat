@@ -1,6 +1,7 @@
 /**
  * IMPORTS
  */
+import chat from 'src/state/ducks/chat/reducer';
 
 
 /**
@@ -8,4 +9,5 @@
  */
 export default
 {
+    chat
 };
