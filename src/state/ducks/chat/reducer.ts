@@ -47,6 +47,34 @@ const actionsMap: IChatReducer = {
 
 
     /**
+     * I add the connection properties to the state.
+     *
+     * :param state: chat state
+     * :param action: action dispatched
+     *
+     * :returns: chat state
+     */
+    [types.CONNECT]:
+        (state: IChatState, action: Actions.IConnect): IChatState =>
+        {
+            // get parameters
+            const {message} = action;
+            const {prefix} = message;
+            const {uid} = message;
+
+            // return state
+            return {
+                ...state,
+                messages: {
+                    ...state.messages,
+                    prefix
+                },
+                uid
+            };
+        },
+
+
+    /**
      * I add an incoming message to the state.
      *
      * :param state: chat state
