@@ -1,0 +1,29 @@
+# generic backup files
+*~
+
+# vi temporary files
+*.swp
+*.swo
+
+# eclipse project files
+.project
+.metadata
+
+# sublime project files
+.sublime-project
+.sublime-workspace
+
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# build directory for ExtJS projects
+/build
+
+# packages downloaded from packages repository
+/packages/
+
+# Dependency directory
+node_modules
+!src/external/src/node_modules
