@@ -2,6 +2,7 @@
  * IMPORTS
  */
 import {IStorage} from 'src/state/enhancers/persistor/storage.d';
+import initialState from 'src/state/ducks/chat/initialstate';
 
 
 /**
@@ -25,7 +26,17 @@ const Storage = (storage: IStorage): IStorage => ({
      */
     put: (key: string, state: any, callback: Function): IStorage['put'] =>
     {
-        return storage.put(key, state, callback);
+        // get chat properties
+        const {uid} = state.chat;
+
+        // set chat state
+        const chat = {
+            ...initialState,
+            uid
+        };
+
+        // put chat state on storage and return it
+        return storage.put(key, {chat}, callback);
     }
 });
 
