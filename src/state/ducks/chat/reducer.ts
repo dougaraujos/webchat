@@ -86,6 +86,44 @@ const actionsMap: IChatReducer = {
 
 
     /**
+     * I add an outgoing message to the state.
+     *
+     * :param state: chat state
+     * :param action: action dispatched
+     *
+     * :returns: chat state
+     */
+    [types.OUTGOING_MESSAGE]:
+        (state: IChatState, action: Actions.IOutgoingMessage): IChatState =>
+        {
+            // get parameters
+            const {originalId} = action.message;
+
+            // set outgoing message
+            const message: IChatMessage = {
+                ...action.message,
+                outgoing: true
+            };
+
+            // add outgoing message to chat messages
+            const messages: IChatMessages = {
+                ...state.messages,
+                byId: {
+                    ...state.messages.byId,
+                    [originalId]: message
+                },
+                lastId: state.messages.lastId + 1
+            };
+
+            // return state
+            return {
+                ...state,
+                messages
+            };
+        },
+
+
+    /**
      * I remove an attachment from state.
      *
      * :param state: chat state
