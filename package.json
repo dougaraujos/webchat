@@ -1,0 +1,45 @@
+{
+    "name": "converja-webchat",
+    "version": "0.1.0",
+    "description": "Converja WebChat Application",
+    "main": "src/index.ts",
+    "scripts": {
+        "build": "webpack --config webpack/production.js",
+        "start": "node --max_old_space_size=4096 node_modules/.bin/webpack-dev-server --inline --hot --config webpack/development.js"
+    },
+    "author": "VulcaNet",
+    "license": "VulcaNet",
+    "devDependencies": {
+        "@types/react": "^16.4.14",
+        "@types/react-dom": "^16.0.7",
+        "@types/react-redux": "^5.0.21",
+        "awesome-typescript-loader": "^5.2.1",
+        "css-hot-loader": "^1.4.2",
+        "css-loader": "^0.28.11",
+        "eslint": "^4.19.1",
+        "eslint-loader": "^2.1.0",
+        "eslint-plugin-react": "^7.11.1",
+        "eslint-plugin-typescript": "^0.11.0",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "file-loader": "^1.1.11",
+        "hard-source-webpack-plugin": "^0.11.2",
+        "html-webpack-plugin": "^3.2.0",
+        "node-sass": "^4.9.3",
+        "sass-loader": "^7.1.0",
+        "tsconfig-paths-webpack-plugin": "^3.2.0",
+        "typescript": "^2.9.2",
+        "typescript-eslint-parser": "^15.0.1",
+        "typings-for-css-modules-loader": "^1.7.0",
+        "webpack": "^4.19.1",
+        "webpack-cli": "^2.1.5",
+        "webpack-dev-server": "^3.1.8",
+        "webpack-merge": "^4.1.4"
+    },
+    "dependencies": {
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.0",
+        "redux-localstorage": "^1.0.0-rc5"
+    }
+}
